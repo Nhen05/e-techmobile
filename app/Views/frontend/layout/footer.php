@@ -3,8 +3,8 @@
          <div class="row">
              <!-- Cột 1 -->
              <div class="col-md-3 mb-4">
-                 <h5 class="text-uppercase fw-bold">TÁO STORE</h5>
-                 <p>Địa chỉ: 43 Hồ Tùng Mậu - Mai Dịch - Cầu Giấy - Hà Nội</p>
+                 <h5 class="text-uppercase fw-bold">SHADOW TEK</h5>
+                 <p>Địa chỉ: 12 Hùng Vường Thị Xã Buôn Hồ Đak lak</p>
                  <ul class="list-unstyled">
                      <li><a href="#" class="d-inline-block py-1 text-decoration-none text-secondary">Tìm cửa hàng gần
                              nhất</a></li>
@@ -104,7 +104,7 @@
 
      <!-- Phần cuối: nền đỏ -->
      <div class="text-center text-white py-3" style="background-color: #0d3b66;">
-         <p class="mb-0 small">Copyright 2025 © Y Nhen Adrong </p>
+         <p class="mb-0 small">Copyright 2025 © Nhen Dev Cit2331 </p>
      </div>
  </footer>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
