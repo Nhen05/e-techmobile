@@ -1,11 +1,10 @@
-<nav class="navbar navbar-expand-lg " style="background-color: #343a40; padding: 12px 0;">
+<nav class="navbar navbar-expand-lg " style="background-color: #0d3b66; padding: 12px 0;">
     <div class="container d-flex justify-content-between align-items-center">
         
         <!-- Logo -->
-        <a class="navbar-brand text-white fw-bold" href="#" style="font-size: 1.25rem;">
-            <i class="fas fa-store me-2"></i>TechMobile
-        </a>
-
+      <a class="navbar-brand" href="#" style="display: flex; align-items: center;">
+        <img src="<?php  echo base_url('assets/images/shadowtek.png')?>" alt="TechMobile Logo" style="height: 40px; width: auto;">
+    </a>
         <!-- Thanh tìm kiếm -->
         <div class="flex-grow-1 mx-4">
             <div class="input-group" style="max-width: 500px;">

@@ -501,9 +501,7 @@
         </div>
     </div>
 </div>
-
         </div>
-
         <!-- Sidebar -->
         <div class="col-lg-4">
             <!-- Promo Banner -->
@@ -590,4 +588,15 @@
             swiper: swiper,
         },
     });
+    function increaseQty() {
+        var qtyInput = document.getElementById('quantity');
+        qtyInput.value = parseInt(qtyInput.value) + 1;
+    }
+    function decreaseQty() {
+        var qtyInput = document.getElementById('quantity');
+        if (parseInt(qtyInput.value) > 1) {
+            qtyInput.value = parseInt(qtyInput.value) - 1;
+        }
+    }
+    
 </script>
