@@ -1,0 +1,34 @@
+CRITICAL - 2025-05-26 01:27:30 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "frontend/pages/header.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('frontend/pages/header.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/pages/header', [], true)
+ 3 APPPATH\Controllers\BaseController.php(60): view('frontend/pages/header')
+ 4 APPPATH\Controllers\Home.php(10): App\Controllers\BaseController->giaodienClient([])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\githubProject\\e-techmobile2\\public\\index.php')
+ERROR - 2025-05-26 02:26:50 --> mysqli_sql_exception: Unknown column 'username' in 'field list' in C:\xampp\htdocs\githubProject\e-techmobile2\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\githubProject\e-techmobile2\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\githubProject\e-techmobile2\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\githubProject\e-techmobile2\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\githubProject\e-techmobile2\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\githubProject\e-techmobile2\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\githubProject\e-techmobile2\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\githubProject\e-techmobile2\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\githubProject\e-techmobile2\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\githubProject\e-techmobile2\app\Services\AuthService.php(79): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\githubProject\e-techmobile2\app\Controllers\AuthController.php(26): App\Services\AuthService->addUsers(Object(CodeIgniter\HTTP\IncomingRequest))
+#10 C:\xampp\htdocs\githubProject\e-techmobile2\system\CodeIgniter.php(933): App\Controllers\AuthController->registerAccount()
+#11 C:\xampp\htdocs\githubProject\e-techmobile2\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#12 C:\xampp\htdocs\githubProject\e-techmobile2\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\githubProject\e-techmobile2\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#14 C:\xampp\htdocs\githubProject\e-techmobile2\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 C:\xampp\htdocs\githubProject\e-techmobile2\public\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 C:\xampp\htdocs\githubProject\e-techmobile2\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#17 {main}

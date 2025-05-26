@@ -1,262 +1,154 @@
-        <style>
-            :root {
-                --primary-red: #e31e24;
-                --secondary-red: #d61e24;
-                --dark-bg: #1a1a1a;
-                --light-gray: #f8f9fa;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPhone - Điện thoại, laptop, tablet chính hãng</title>
+  <?= $this->include('partials/link-header'); ?>
 
-            body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background-color: #fff;
-            }
+    <style>
+        :root {
+            --primary-red: #e31e24;
+            --secondary-red: #d61e24;
+            --dark-bg: #1a1a1a;
+        }
 
-            .navbar-custom {
-                background-color: var(--primary-red);
-                padding: 0.5rem 0;
-            }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-            .breadcrumb-custom {
-                background: none;
-                padding: 1rem 0;
-            }
+        .navbar-custom {
+            background-color: var(--primary-red);
+            padding: 0.5rem 0;
+        }
 
-            .breadcrumb-custom .breadcrumb-item a {
-                color: #666;
-                text-decoration: none;
-            }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
 
-            .product-main {
-                background: white;
-                border-radius: 10px;
-                padding: 2rem;
-                margin-bottom: 2rem;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
+        .sidebar {
+            background-color: #f8f9fa;
+            min-height: 600px;
+            padding: 1rem;
+        }
 
-            .product-image-main {
-                width: 100%;
-                max-width: 400px;
-                height: 400px;
-                background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-                border-radius: 15px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-                margin-bottom: 1rem;
-            }
+        .sidebar-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+            cursor: pointer;
+        }
 
-            .discount-badge-large {
-                position: absolute;
-                top: 20px;
-                left: 20px;
-                background-color: var(--primary-red);
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 25px;
-                font-size: 1.1rem;
-                font-weight: bold;
-            }
+        .sidebar-item:hover {
+            background-color: #e9ecef;
+            margin: 0 -1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
 
-            .color-variants {
-                display: flex;
-                gap: 0.5rem;
-                margin: 1rem 0;
-            }
+        .banner-section {
+            
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
 
-            .color-variant {
-                width: 60px;
-                height: 60px;
-                border: 2px solid #ddd;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                background: linear-gradient(45deg, #f8f9fa, #e9ecef);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+        .product-card {
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
 
-            .color-variant:hover,
-            .color-variant.active {
-                border-color: var(--primary-red);
-                transform: scale(1.05);
-            }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
 
-            .price-section {
-                background: linear-gradient(135deg, #fff3f3, #ffebeb);
-                padding: 1.5rem;
-                border-radius: 15px;
-                margin: 1rem 0;
-            }
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #6c757d;
+        }
 
-            .price-original {
-                text-decoration: line-through;
-                color: #999;
-                font-size: 1.1rem;
-            }
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
 
-            .price-current {
-                color: var(--primary-red);
-                font-size: 1.8rem;
-                font-weight: bold;
-            }
+        .price-original {
+            text-decoration: line-through;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
 
-            .btn-custom {
-                padding: 0.75rem 2rem;
-                border-radius: 25px;
-                font-weight: bold;
-                border: none;
-                transition: all 0.3s ease;
-            }
+        .price-current {
+            color: var(--primary-red);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
 
-            .btn-buy-now {
-                background: var(--primary-red);
-                color: white;
-            }
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
 
-            .btn-buy-now:hover {
-                background: var(--secondary-red);
-                transform: translateY(-2px);
-            }
+        .brand-banner {
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 1rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
 
-            .btn-add-cart {
-                background: #007bff;
-                color: white;
-            }
+        .footer-custom {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 2rem 0;
+        }
 
-            .btn-add-cart:hover {
-                background: #0056b3;
-                transform: translateY(-2px);
-            }
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
 
-            .payment-options {
-                background: var(--light-gray);
-                padding: 1rem;
-                border-radius: 10px;
-                margin: 1rem 0;
-            }
+        .social-icons a:hover {
+            color: var(--primary-red);
+        }
 
-            .payment-option {
-                padding: 0.5rem;
-                margin: 0.25rem 0;
-                background: white;
-                border-radius: 8px;
-                border-left: 4px solid var(--primary-red);
-            }
-
-            .specs-table {
-                background: white;
-                border-radius: 10px;
-                overflow: hidden;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .specs-table th {
-                background: var(--light-gray);
-                padding: 1rem;
-                border: none;
-            }
-
-            .specs-table td {
-                padding: 1rem;
-                border-bottom: 1px solid #eee;
-            }
-
-            .review-section {
-                background: white;
-                border-radius: 10px;
-                padding: 2rem;
-                margin: 2rem 0;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .review-form {
-                background: var(--light-gray);
-                padding: 1.5rem;
-                border-radius: 10px;
-                margin: 1rem 0;
-            }
-
-            .review-item {
-                border-bottom: 1px solid #eee;
-                padding: 1rem 0;
-            }
-
-            .stars {
-                color: #ffc107;
-            }
-
-            .related-products {
-                background: white;
-                border-radius: 10px;
-                padding: 2rem;
-                margin: 2rem 0;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .product-card-small {
-                border: 1px solid #eee;
-                border-radius: 10px;
-                padding: 1rem;
-                transition: all 0.3s ease;
-                height: 100%;
-            }
-
-            .product-card-small:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            }
-
-            .sidebar-info {
-                background: white;
-                border-radius: 10px;
-                padding: 1.5rem;
-                margin-bottom: 1rem;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .promo-banner {
-                background: linear-gradient(135deg, #00d4ff, #5b86e5);
-                color: white;
-                padding: 2rem;
-                border-radius: 15px;
-                margin: 1rem 0;
-                text-align: center;
-            }
-
-            .footer-custom {
-                background-color: var(--dark-bg);
-                color: white;
-                padding: 2rem 0;
-                margin-top: 3rem;
-            }
-
-            .social-icons a {
-                color: white;
-                font-size: 1.5rem;
-                margin: 0 0.5rem;
-                transition: color 0.3s ease;
-            }
-
-            .social-icons a:hover {
-                color: var(--primary-red);
-            }
-
-            .floating-cart {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                z-index: 1000;
-            }
-
-            .floating-cart .btn {
-                border-radius: 50px;
-                padding: 1rem 1.5rem;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            }
-        </style>
+        footer.footer-custom {
+            background-color: #f1f1f1;
+            /* xám nhạt */
+        }
+    </style>
+</head>
+<body>
+       <?= $Header; ?>
+   <div class="container">
+        <div class="row">
+       
         <!-- Main Product Section -->
         <div class="col-lg-8">
             <div class="product-main">
@@ -600,3 +492,73 @@
     }
     
 </script>
+
+</div>
+</div>
+    <?= $Footer; ?>
+<?= $this->include('partials/link-footer'); ?>
+
+    <script>
+        // Add interactive effects
+        document.addEventListener('DOMContentLoaded', function () {
+            // Product card hover effects
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-10px)';
+                    this.style.boxShadow = '0 15px 35px rgba(0,0,0,0.1)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+
+            // Sidebar item clicks
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    sidebarItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.querySelector('input[type="text"]');
+            searchInput.addEventListener('focus', function () {
+                this.style.borderColor = 'var(--primary-red)';
+                this.style.boxShadow = '0 0 5px rgba(227,30,36,0.3)';
+            });
+
+            searchInput.addEventListener('blur', function () {
+                this.style.borderColor = '';
+                this.style.boxShadow = '';
+            });
+        });
+    </script>
+    <script>
+        function startFlashSaleCountdown(durationInSeconds) {
+            let timer = durationInSeconds, hours, minutes, seconds;
+            const countdownElement = document.getElementById('flashCountdown');
+
+            const countdownInterval = setInterval(function () {
+                hours = Math.floor(timer / 3600);
+                minutes = Math.floor((timer % 3600) / 60);
+                seconds = timer % 60;
+
+                countdownElement.textContent =
+                    `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+                if (--timer < 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.textContent = "Đã kết thúc";
+                }
+            }, 1000);
+        }
+
+        // Gọi hàm với 1 giờ đếm ngược
+        startFlashSaleCountdown(3600);
+    </script>
+</body>
+</html>

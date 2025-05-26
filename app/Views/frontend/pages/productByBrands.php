@@ -1,4 +1,17 @@
-<div class="mb-4 mt-4" style="display: flex; gap: 20px; font-family: Arial, sans-serif; font-size: 14px;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPhone - Điện thoại, laptop, tablet chính hãng</title>
+  <?= $this->include('partials/link-header'); ?>
+   
+</head>
+<body>
+       <?= $Header; ?>
+   <div class="container">
+        <div class="row">
+   <div class="mb-4 mt-4" style="display: flex; gap: 20px; font-family: Arial, sans-serif; font-size: 14px;">
 
   <!-- Sidebar trái: Sản phẩm bán chạy -->
   <div style="width: 22%; padding: 10px; border: 1px solid #e0e0e0; background-color: #f9f9f9;">
@@ -86,3 +99,72 @@
 </div>
 
 </div>
+
+</div>
+</div>
+    <?= $Footer; ?>
+<?= $this->include('partials/link-footer'); ?>
+    <script>
+        // Add interactive effects
+        document.addEventListener('DOMContentLoaded', function () {
+            // Product card hover effects
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-10px)';
+                    this.style.boxShadow = '0 15px 35px rgba(0,0,0,0.1)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+
+            // Sidebar item clicks
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    sidebarItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.querySelector('input[type="text"]');
+            searchInput.addEventListener('focus', function () {
+                this.style.borderColor = 'var(--primary-red)';
+                this.style.boxShadow = '0 0 5px rgba(227,30,36,0.3)';
+            });
+
+            searchInput.addEventListener('blur', function () {
+                this.style.borderColor = '';
+                this.style.boxShadow = '';
+            });
+        });
+    </script>
+    <script>
+        function startFlashSaleCountdown(durationInSeconds) {
+            let timer = durationInSeconds, hours, minutes, seconds;
+            const countdownElement = document.getElementById('flashCountdown');
+
+            const countdownInterval = setInterval(function () {
+                hours = Math.floor(timer / 3600);
+                minutes = Math.floor((timer % 3600) / 60);
+                seconds = timer % 60;
+
+                countdownElement.textContent =
+                    `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+                if (--timer < 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.textContent = "Đã kết thúc";
+                }
+            }, 1000);
+        }
+
+        // Gọi hàm với 1 giờ đếm ngược
+        startFlashSaleCountdown(3600);
+    </script>
+</body>
+</html>

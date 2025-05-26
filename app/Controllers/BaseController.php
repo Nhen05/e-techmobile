@@ -57,8 +57,8 @@ abstract class BaseController extends Controller
         // E.g.: $this->session = service('session');
     }    
     public function giaodienClient($data, $content = null, $dataContent =[]){
-        $data['header'] = view('client/header');
-        $data['footer'] = view('client/footer');
+        $data['Header'] = view('frontend/layout/header');
+        $data['Footer'] = view('frontend/layout/footer');
         if(!is_null($content)){
             $data['content']= view($content, $dataContent);
         }
@@ -66,7 +66,7 @@ abstract class BaseController extends Controller
         return $data;
     }
     public function giaodienAdmin($data, $content = null, $dataContent =[]){
-        $data['header'] = view('admin/header');
+        $data['Header'] = view('admin/header');
         if(!is_null($content)){
             $data['content']= view($content, $dataContent);
         }

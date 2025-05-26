@@ -24,25 +24,39 @@
         <small class="fw-bold">Gọi mua hàng<br>0366.090.969</small>
       </a>
 
-      <a href="<?= base_url('index.php?page=cua-hang') ?>" class="text-white text-decoration-none text-center">
+      <a href="<?= base_url('cua-hang') ?>" class="text-white text-decoration-none text-center">
         <i class="fas fa-map-marker-alt me-1"></i><br>
         <small>Xem<br>Cửa hàng</small>
       </a>
 
-      <a href="<?= base_url('index.php?page=tra-cuu-don-hang') ?>" class="text-white text-decoration-none text-center">
+      <a href="<?= base_url('tra-cuu-don-hang') ?>" class="text-white text-decoration-none text-center">
         <i class="fas fa-truck me-1"></i><br>
         <small>Tra cứu<br>đơn hàng</small>
       </a>
 
-      <a href="<?= base_url('index.php?page=cart') ?>" class="text-white text-decoration-none text-center">
+      <a href="<?= base_url('cart') ?>" class="text-white text-decoration-none text-center">
         <i class="fas fa-shopping-cart fa-lg"></i><br>
         <small>Giỏ hàng</small>
       </a>
 
-      <a href="<?= base_url('index.php?page=login') ?>" class="text-white text-decoration-none text-center">
+    <?php if (!session()->has('user_id')): ?>
+    <a href="<?= base_url('login') ?>" class="text-white text-decoration-none text-center">
         <i class="fas fa-user me-1"></i><br>
         <small>Đăng nhập</small>
-      </a>
+    </a>
+<?php else: ?>
+    <div class="text-white text-decoration-none text-center dropdown">
+        <a href="#" class="dropdown-toggle text-white text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user-circle me-1"></i><br>
+            <small><?= session('user_name') ?></small>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="<?= base_url('/profile') ?>">Thông tin cá nhân</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('/logout') ?>">Đăng xuất</a></li>
+        </ul>
+    </div>
+<?php endif; ?>
+
       
     </div>
   </div>
