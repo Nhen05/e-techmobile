@@ -53,7 +53,7 @@
         }
 
         .banner-section {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, #333 100%);
+            
             color: white;
             padding: 2rem;
             border-radius: 10px;

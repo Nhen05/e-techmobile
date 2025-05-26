@@ -103,6 +103,6 @@
   </form>
   <div class="text-center mt-4 mb-4" style="font-size: 0.9rem; color: #333;">
   Bạn đã có tài khoản? 
-  <a href="#" class="text-danger text-decoration-none fw-semibold">Đăng nhập</a> ngay
+  <a href="http://localhost:8080/index.php?page=login" class="text-danger text-decoration-none fw-semibold">Đăng nhập</a> ngay
 </div>
 </div>
